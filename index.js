@@ -1,6 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
+const CustomerRoute = require('./route/CustomerRoute')
+
 const app = express()
 
 const port = 3000
@@ -19,6 +21,8 @@ mongoose
   .catch((err) => {
     console.log('try again' + err)
   })
+
+app.use('./api/v1/customer', CustomerRoute)
 
 // mongoose.connect('mongodb://localhost/pos', (err) => {
 //   if (err) throw err
