@@ -23,3 +23,4 @@ install modules
 npm i nodemon
 npm install express --save
 npm i mongoose
+npm i body-parser  = body eke data save kara ganna bari ekata wisaduwamk
