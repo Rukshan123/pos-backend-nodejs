@@ -1,0 +1,25 @@
+steps
+=====
+== import required modules
+  == core modules (inbuild modules)
+  *http
+  *url
+  *path
+  *ps = file systm
+
+  == local module (manually design modules )
+  == external modules
+  *express
+  *nodemon
+
+
+create the serever
+read request and return the respones
+
+
+
+install modules
+================
+npm i nodemon
+npm install express --save
+npm i mongoose
