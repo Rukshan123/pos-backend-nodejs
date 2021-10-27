@@ -18,7 +18,7 @@ const CustomerDTO = new mongoose.Schema({
     required: true,
   },
   customerContactNumber: {
-    type: Number,
+    type: String,
     required: true,
   },
 })
