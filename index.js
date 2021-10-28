@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 const CustomerRoute = require('./route/CustomerRoute')
+const AdminUserRoute = require('./route/AdminUserRoute')
 
 const app = express()
 app.use(bodyParser())
@@ -26,6 +27,7 @@ mongoose
   })
 
 app.use('/api/v1/customer', CustomerRoute)
+app.use('/api/v1/adminUser', AdminUserRoute)
 
 // mongoose.connect('mongodb://localhost/pos', (err) => {
 //   if (err) throw err
