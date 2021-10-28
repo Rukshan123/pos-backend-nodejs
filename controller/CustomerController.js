@@ -19,7 +19,19 @@ const saveCustomer = (req, resp) => {
     })
 }
 
-const deleteCustomer = (req, res) => {}
+const deleteCustomer = (req, res) => {
+  CustomerDTO.deleteOne({ customerId: req.headers.id })
+    .then((result) => {
+      if (result.deletedCount > 0) {
+        resp.status(200).json({ isDeleted: true })
+      } else {
+        resp.status(200).json({ isDeleted: false })
+      }
+    })
+    .catch((error) => {
+      resp.status(500).json(error)
+    })
+}
 
 const updateCustomer = (req, resp) => {
   CustomerDTO.updateOne(
@@ -57,7 +69,15 @@ const getAllCustomers = (req, resp) => {
   } catch (e) {}
 }
 
-const getCustomerById = (req, res) => {}
+const getCustomerById = (req, res) => {
+  CustomerDTO.findOne({ customerId: req.headers.id })
+    .then((result) => {
+      resp.status(200).json(result)
+    })
+    .catch((error) => {
+      resp.status(500).json(error)
+    })
+}
 
 module.exports = {
   saveCustomer,
