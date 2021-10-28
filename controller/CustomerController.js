@@ -69,7 +69,7 @@ const getAllCustomers = (req, resp) => {
   } catch (e) {}
 }
 
-const getCustomerById = (req, res) => {
+const getCustomerById = (req, resp) => {
   CustomerDTO.findOne({ customerId: req.headers.id })
     .then((result) => {
       resp.status(200).json(result)
