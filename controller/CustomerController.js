@@ -21,7 +21,29 @@ const saveCustomer = (req, resp) => {
 
 const deleteCustomer = (req, res) => {}
 
-const updateCustomer = (req, res) => {}
+const updateCustomer = (req, resp) => {
+  CustomerDTO.updateOne(
+    { customerId: req.body.customerId },
+    {
+      $set: {
+        customerFirstName: req.body.customerFirstName,
+        customerLastName: req.body.customerLastName,
+        customerAddress: req.body.customerAddress,
+        customerContactNumber: req.body.customerContactNumber,
+      },
+    }
+  )
+    .then((result) => {
+      if (result.modifiedCount > 0) {
+        resp.status(200).json({ isUpdated: true })
+      } else {
+        resp.status(200).json({ isUpdated: false })
+      }
+    })
+    .catch((err) => {
+      resp.status(500).json({ err })
+    })
+}
 
 const getAllCustomers = (req, resp) => {
   try {
