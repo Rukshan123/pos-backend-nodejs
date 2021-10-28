@@ -23,7 +23,17 @@ const deleteCustomer = (req, res) => {}
 
 const updateCustomer = (req, res) => {}
 
-const getAllCustomers = (req, res) => {}
+const getAllCustomers = (req, resp) => {
+  try {
+    CustomerDTO.find()
+      .then((result) => {
+        resp.status(200).json({ data: result })
+      })
+      .catch((error) => {
+        resp.status(500).json(error)
+      })
+  } catch (e) {}
+}
 
 const getCustomerById = (req, res) => {}
 
